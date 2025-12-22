@@ -1,17 +1,17 @@
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
-        if numRows == 1 or numRows >= len(s):
+        if numRows == 1 or len(s) <= 1:
             return s
 
-        idx, d = 0, 1
-        rows = [''] * numRows
-
-        for char in s:
-            rows[idx] += char
+        idx = 0
+        d = 1
+        res = [""] * numRows
+        for ch in s:
+            res[idx] += ch
             if idx == 0:
                 d = 1
             elif idx == numRows - 1:
                 d = -1
             idx += d
-
-        return ''.join(rows) 
+        
+        return "".join(res)
